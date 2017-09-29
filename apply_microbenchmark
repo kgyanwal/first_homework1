@@ -1,0 +1,56 @@
+#Microbenchmark for performance Tesing: 
+
+a <- runif(1500)
+  microbenchmark(
+    sqrt(a),
+    a ^ 0.05
+  )
+  
+  # This part of code test which part of code takes longer time, exponential takes
+  # longer than sqrt. 
+  
+  # for loop 
+  
+  k<-function(){
+    for(i in 1:100000){
+      print(i^3)
+    }
+  }
+  k()
+  
+  # lapply function is slower for square
+  b<- 1:100000
+  lapply(b, function(x) x^3)
+  
+  microbenchmark(k,b)
+  # using vapply to test the same data for the square of the given input
+  c<- 1:100000
+  vapply(c, function(x) x^3, 1)
+  
+  #* microbenchmark(k,b,c)
+  check1<-microbenchmark(
+  arr<-for(i in 101:150){
+    for(j in 151:200){
+      print(i+j)
+    }
+  },
+  
+  
+ # data1<- 1001:1500
+ # data2<- 1501:2000
+  test1<-mapply(sum, 101:150, 151:200), times = 5
+ )
+  
+boxplot(check1)
+  
+# check the performance among all functions
+print(check1)
+
+#boxplot
+boxplot(check1)
+
+# check for qplot 
+qplot(y=time, data=check1, color=expr)+scale_y_log10()
+
+
+  
