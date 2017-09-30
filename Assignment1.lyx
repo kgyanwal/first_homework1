@@ -1,0 +1,470 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+By: Krishana Gyanwali =====Assignment 1
+\end_layout
+
+\begin_layout Section
+1.
+ Explain all “Apply” functions.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+A.
+ Apply: apply function family in R can be used as a function to matrices,
+ arrays, lists and dataframes.
+ It works as an alternative approach to loops.
+ There are many members associated with apply function in R, so, it is called
+ as apply function family, such as sapply(), lapply(), vapply(), tapply()
+ etc.
+ With the use of really short code using apply function we can get a mean
+ of an array, or get the sum of a matrix.
+ Code: apply(A, Margin, Function….), in which A is an array or matric, margin
+ is a variable defining how the function is applied, and function or other
+ parameters to pass.
+ Example: # 4 x 5 matrix of scores score <- matrix(c(71:80, 91:100), nrow=
+ 5, ncol = 4) # This function gives the mean of both row and column.
+ (1,2 is the dimension).
+ apply(score, 1,2 , mean)
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+B.
+ lapply: It is similar to apply, but it takes input as list, and returns
+ list as an output.
+ It can be used for dataframes, lists or vectors, but the output is returned
+ as list.
+ Example: # Score in list.
+ score <- list(a = 1:10, b = 11:20, c = 21:30) # Score will output three
+ different list.
+ lapply(score, FUN = mean) # It will return mean of each list.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+C.
+ sapply: It is same as lapply, but it returns vector instead of list.
+ It is like a wrapper function for lapply.
+ sapply(score, FUN = mean) # This will return a vector instead of list.
+ 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+D.
+ tapply: It spilits the array based specified factor level and applies function
+ to each of them.
+ It first groups each data-set, then calculates the function on each category.
+ tapply( group1, group2, group3, mean) # Here, tapply returns each group’s
+ mean.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+E.
+ mapply: It is a multivariate form of sapply.
+ It will applied the given function to the first element of each parameters/argu
+ments first, then follows second accordingly.
+ Example: a <- 1:10 b <- 11:20 mapply(sum, a, b) # mapply(sum, a, b) # [1]
+ 12 14 16 18 20 22 24 26 28 30, data set of a is added to b in a sequent#
+ ial manner.
+ 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+F.
+ rapply: As the name states, rapply is used for recursive apply.
+ The function associated with it is applied to all the element lists recusively.
+ # rapply() function a <- list(1:10) rapply(a, function(a){a^2}) # So, this
+ function results the squares of 1 through 10.
+ G.
+ vapply: “vapply is similar to sapply, but has a pre-specified type of return
+ value, so it can be safer (and sometimes faster) to use.”(Source: R studio
+ help ?vapply).
+ vapply(1:10, sqrt, 1) Usage 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+H.
+ eapply: it applies over values in an environment and returns the result
+ as a list.
+ Example: eapply(env, FUN, …..all.names = FALSE, USE.NAMES = TRUE)
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+e <- new.env() > e$x <-1:5 > e$y <- 6:10 > eapply(e, mean)
+\end_layout
+
+\begin_layout Standard
+Result: 
+\end_layout
+
+\begin_layout Standard
+$x [1] 3
+\end_layout
+
+\begin_layout Standard
+$y [1] 8
+\end_layout
+
+\begin_layout Section
+Question 2 Answer: 
+\end_layout
+
+\begin_layout Standard
+This portion is available in the github link and tested locally.
+ 
+\end_layout
+
+\begin_layout Standard
+Link is as follows:
+\end_layout
+
+\begin_layout Right Address
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/kgyanwal/first_homework1/blob/master/apply_microbenchmark
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+#Microbenchmark for performance Tesing: 
+\end_layout
+
+\begin_layout Part
+Test1: 
+\end_layout
+
+\begin_layout Standard
+a <- runif(1500) microbenchmark( sqrt(a), a ^ 0.05 )
+\end_layout
+
+\begin_layout Standard
+# This part of code test which part of code takes longer time, exponential
+ takes
+\end_layout
+
+\begin_layout Standard
+# longer than sqrt.
+ 
+\end_layout
+
+\begin_layout Part*
+Test2: 
+\end_layout
+
+\begin_layout Standard
+# for loop k<-function(){ for(i in 1:100000){ print(i^3) } } k() 
+\end_layout
+
+\begin_layout Standard
+# lapply function is slower for square b<- 1:100000 lapply(b, function(x)
+ x^3) microbenchmark(k,b) 
+\end_layout
+
+\begin_layout Part*
+Test3: 
+\end_layout
+
+\begin_layout Standard
+# using vapply to test the same data for the square of the given input
+\end_layout
+
+\begin_layout Standard
+c<- 1:100000 vapply(c, function(x) x^3, 1) 
+\end_layout
+
+\begin_layout Standard
+#* microbenchmark(k,b,c) 
+\end_layout
+
+\begin_layout Standard
+check1<-microbenchmark( arr<-for(i in 101:150){ for(j in 151:200){ print(i+j)
+ } }, 
+\end_layout
+
+\begin_layout Subsection
+Test4: 
+\end_layout
+
+\begin_layout Standard
+# data1<- 1001:1500
+\end_layout
+
+\begin_layout Standard
+# data2<- 1501:2000
+\end_layout
+
+\begin_layout Standard
+test1<-mapply(sum, 101:150, 151:200), times = 5 )
+\end_layout
+
+\begin_layout Standard
+Graph1: boxplot(check1)
+\end_layout
+
+\begin_layout Standard
+# check the performance among all functions print(check1)
+\end_layout
+
+\begin_layout Standard
+#boxplot boxplot(check1) Graph2: 
+\end_layout
+
+\begin_layout Standard
+# check for qplot qplot(y=time, data=check1, color=expr)+scale_y_log10()
+\end_layout
+
+\begin_layout Standard
+Performance Result: 
+\end_layout
+
+\begin_layout Subsection
+Test 1: 
+\end_layout
+
+\begin_layout Standard
+Unit: microseconds 
+\end_layout
+
+\begin_layout Standard
+expr min lq mean median uq max neval 
+\end_layout
+
+\begin_layout Standard
+sqrt(a) 8.856 9.789 10.52993 9.789 10.255 20.975 100 
+\end_layout
+
+\begin_layout Standard
+a^0.05 249.845 253.107 261.86588 255.438 269.888 340.739 100
+\end_layout
+
+\begin_layout Subsection
+Test 2: 
+\end_layout
+
+\begin_layout Standard
+Unit: nanoseconds 
+\end_layout
+
+\begin_layout Standard
+expr min lq mean median uq max neval k 
+\end_layout
+
+\begin_layout Standard
+0 0 4.71 0 0 467 100 b 0 0 4.68 0 0 467 100 
+\end_layout
+
+\begin_layout Subsection
+Test 4: print(check1) 
+\end_layout
+
+\begin_layout Standard
+Unit: microseconds
+\end_layout
+
+\begin_layout Standard
+expr arr <- for (i in 101:150) { for (j in 151:200) { print(i + j) } } 
+\end_layout
+
+\begin_layout Standard
+test1 <- mapply(sum, 101:150, 151:200) 
+\end_layout
+
+\begin_layout Standard
+min lq mean median uq max neval 
+\end_layout
+
+\begin_layout Standard
+76716.655 79537.657 83531.6242 84724.258 87687.90 88991.655 5 
+\end_layout
+
+\begin_layout Standard
+71.317 110.939 109.1672 111.871 123.99 127.719 5
+\end_layout
+
+\begin_layout Section
+Question 3 Answer.
+ 
+\end_layout
+
+\begin_layout Standard
+Graphical presentation of performance using boxplot and qplot 
+\end_layout
+
+\begin_layout Subsection*
+Graph1: Boxplot
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename graph1_Boxplot.PNG
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Graph2: ggplot
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ggplot2.PNG
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Question 4.
+ Answer: 
+\end_layout
+
+\begin_layout Standard
+While playing around different loops and apply family function, the usefulness
+ of apply function is vital even smaller calculation.
+ mapply and two for loop the same job, however the performance of mapply
+ is a lot faster than loop.
+ But, in smaller calculation, there is minimum difference in performance
+ (Test2).
+ It is interesting to learn difference approaches to solve the same problem,
+ and the most importance thing is time i.e.
+ performance.
+ Justification: When there are two sums of two different arrays, then it
+ is preferred to use apply function.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-1"
+
+\end_inset
+
+Davies Tilman M.
+ The Book of R.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-2"
+
+\end_inset
+
+Daroczi Gergely.
+ Mastering Data Analysis with R.
+\end_layout
+
+\end_body
+\end_document
